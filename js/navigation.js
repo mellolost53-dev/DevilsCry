@@ -13,3 +13,10 @@ document.querySelectorAll(".hero-character").forEach(card => {
 });
 
 //події для карток
+const menuToggle = document.getElementById('mobile-menu');
+const navLinks = document.querySelector('.nav-links');
+
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    menuToggle.classList.toggle('is-active'); // Це запустить анімацію хрестика
+});
