@@ -287,6 +287,30 @@ body {
         fonnt-size: 2.5 rem;
     }
 }
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 7px;
+}
+.menu-toggle .bar{
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    transition: 0.3s;
+}
+/* Анімація перетворення бургера на хрестик */
+.menu-toggle.is-active .bar:nth-child(2) {
+    opacity: 0; /* Середня лінія зникає */
+}
+
+.menu-toggle.is-active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg); /* Верхня лінія нахиляється */
+}
+
+.menu-toggle.is-active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg); /* Нижня лінія нахиляється */
+}
 img {
     max-width:100%;
     height: auto;
