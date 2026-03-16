@@ -10,6 +10,7 @@ body {
     color: #fff;
     font-family: 'Cinzel', serif; 
     overflow-x: hidden;
+    width: 100%;
 }
 
 /* --- 2. ПАНЕЛЬ НАВІГАЦІЇ (HEADER) --- */
@@ -23,13 +24,13 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0 50px;
-    background: rgba(0, 0, 0, 0.9);
-    z-index: 1000;
-    border-bottom: 1px solid rgba(255, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
 }
 
 .nav-logo {
     height: 40px;
+    width: auto;
     filter: drop-shadow(0 0 7px rgba(255, 0, 0, 0.6));
 }
 
@@ -60,7 +61,7 @@ body {
     flex-direction: column;
     cursor: pointer;
     gap: 7px;
-    z-index: 1100;
+    z-index: 2100;
 }
 
 .menu-toggle .bar {
@@ -70,7 +71,6 @@ body {
     transition: 0.3s;
 }
 
-/* Мови */
 .lang-switcher {
     display: flex;
     gap: 10px;
@@ -84,6 +84,11 @@ body {
     cursor: pointer;
     font-family: inherit;
     transition: 0.3s;
+}
+
+.lang-switcher button:hover {
+    background: #ff0000;
+    border-color: #ff0000;
 }
 
 /* --- 3. ГОЛОВНИЙ КОНТЕЙНЕР (ГЕРОЇ) --- */
@@ -104,6 +109,7 @@ body {
     cursor: pointer;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     filter: grayscale(0.6);
 }
 
@@ -112,59 +118,133 @@ body {
     filter: grayscale(0);
 }
 
-.dante { background-image: url('../assets/image/dante.jpg'); border-right: 1px solid rgba(255,0,0,0.3); }
-.vergil { background-image: url('../assets/image/vergil.webp'); }
+.dante {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                      url('../assets/image/dante.jpg');
+    border-right: 1px solid rgba(255,0,0,0.3);
+}
 
-.character-info { text-align: center; z-index: 5; pointer-events: none; }
-.character-info h1 { font-size: 4.5rem; letter-spacing: 8px; text-shadow: 2px 2px 20px #000; }
+.vergil {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                      url('../assets/image/vergil.webp');
+}
 
-/* --- 4. АДАПТАЦІЯ (MOBILE) --- */
+.character-info {
+    text-align: center;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.character-info h1 {
+    font-size: 4.5rem;
+    letter-spacing: 8px;
+    text-shadow: 2px 2px 20px #000;
+}
+
+/* --- 4. КАРТКИ БРАТІВ ТА ЕФЕКТИ --- */
+.brothers-flex {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.brother-card {
+    flex: 1;
+    padding: 40px;
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.9) 0%, rgba(10, 10, 10, 0.9) 100%);
+    border: 2px solid #222;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+    position: relative;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+/* --- 5. СЕКЦІЯ СПАРДИ ТА ГЛІТЧ --- */
+.legend-section {
+    padding: 100px 0;
+    background: radial-gradient(circle at center, #1a0000 0%, #000 70%);
+    border-top: 1px solid #300;
+}
+
+.glitch-wrapper { text-align: center; margin-bottom: 50px; }
+.glitch-title {
+    color: white; font-size: 4rem; font-weight: 900; position: relative;
+    display: inline-block; text-transform: uppercase; letter-spacing: 5px;
+}
+
+.glitch-title::before, .glitch-title::after {
+    content: attr(data-text); position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%; background: black;
+}
+.glitch-title::before { left: 2px; text-shadow: -2px 0 #ff0000; clip: rect(44px, 450px, 56px, 0); animation: glitch-anim 5s infinite linear alternate-reverse; }
+.glitch-title::after { left: -2px; text-shadow: -2px 0 #0066ff; clip: rect(44px, 450px, 56px, 0); animation: glitch-anim 2s infinite linear alternate-reverse; }
+
+@keyframes glitch-anim {
+    0% { clip: rect(31px, 9999px, 94px, 0); }
+    100% { clip: rect(67px, 9999px, 62px, 0); }
+}
+
+.sparda-content { display: flex; align-items: center; gap: 40px; max-width: 900px; margin: 0 auto; }
+.sparda-text p { font-size: 1.1rem; color: #ccc; line-height: 1.8; margin-bottom: 20px; }
+.floating-symbol { width: 200px; filter: drop-shadow(0 0 10px #f00); animation: float 4s ease-in-out infinite; }
+
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+/* --- 6. ФУТЕР --- */
+.main-footer { padding: 40px 0; background: #050505; text-align: center; border-top: 1px solid #1a1a1a; }
+.footer-logo img { height: 40px; filter: grayscale(1) brightness(0.8); transition: 0.3s; }
+
+/* --- 7. МОБІЛЬНА АДАПТАЦІЯ (MEDIA QUERY) --- */
 @media (max-width: 768px) {
-    .main-header {
-        padding: 0 20px;
-    }
-
-    .menu-toggle {
-        display: flex; /* Показуємо бургер */
-    }
+    .main-header { padding: 0 20px; height: 70px; }
+    
+    .menu-toggle { display: flex; } /* Показуємо бургер */
+    
+    .lang-switcher { display: none; } /* Ховаємо стандартні кнопки мов */
 
     .nav-links {
         position: fixed;
         top: 0;
-        right: -100%; /* Ховаємо меню за край */
-        width: 250px;
+        right: -100%; /* Меню заховане справа */
+        width: 280px;
         height: 100vh;
-        background: #0a0a0a;
+        background: rgba(5, 5, 5, 0.98);
         flex-direction: column;
         justify-content: center;
-        gap: 20px;
-        transition: 0.4s ease-in-out;
-        border-left: 1px solid #ff0000;
+        align-items: center;
+        transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border-left: 2px solid #ff0000;
+        z-index: 2050;
     }
 
-    .nav-links.active {
-        right: 0; /* Виїжджає при кліку */
-    }
+    .nav-links.active { right: 0; } /* Виїжджає при активному класі */
 
-    .lang-switcher {
-        display: none; /* Ховаємо на мобілці, щоб не заважало */
-    }
+    .nav-links a { margin: 15px 0; font-size: 1.2rem; }
 
     .hero-container {
-        flex-direction: column;
+        flex-direction: column; /* Герої стають один під одним */
         height: auto;
-        margin-top: 80px;
+        overflow: visible;
+        margin-top: 70px;
     }
 
-    .character-side {
-        width: 100%;
-        height: 50vh;
+    .character-side { width: 100%; height: 50vh; }
+    .character-info h1 { font-size: 2.5rem; letter-spacing: 4px; }
+
+    .brothers-flex, .sparda-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
     }
 
-    .character-info h1 { font-size: 2.5rem; }
+    .brother-card { width: 100%; clip-path: none; margin-bottom: 20px; }
+    .glitch-title { font-size: 2.2rem; }
+    .floating-symbol { width: 120px; }
 }
 
-/* АНІМАЦІЯ ХРЕСТИКА */
+/* --- 8. ДОДАТКОВІ ЕФЕКТИ --- */
 .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
 .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(10px) rotate(45deg); }
 .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
+
+img { max-width: 100%; height: auto; }
