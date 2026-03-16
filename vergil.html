@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vergil</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/loader.css">
+    <style>
+        /* Стилі спеціально для сторінки Данте */
+        body {
+            background: #000;
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .dante-page-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            min-height: 100vh;
+            padding: 100px 10% 50px;
+            background: radial-gradient(circle at 20% 50%, rgb(14, 8, 68) 0%, #000 100%);
+        }
+
+        .char-info-box {
+            max-width: 600px;
+            z-index: 10;
+        }
+
+        .char-info-box h1 {
+            font-size: 100px;
+            color: #4c00ff;
+            text-shadow: 0 0 20px rgb(64, 0, 255);
+            margin: 0;
+            font-family: 'Cinzel', serif;
+        }
+
+        .char-bio-text {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #ccc;
+            border-left: 3px solid #ff0000;
+            padding-left: 20px;
+            margin: 20px 0;
+        }
+
+        .weapon-list {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .weapon-item {
+            background: rgba(0, 0, 255, 0.1);
+            padding: 15px;
+            border: 1px solid rgb(20, 0, 85);
+            border-radius: 5px;
+        }
+
+        .char-full-img img {
+            height: 85vh;
+            filter: drop-shadow(0 0 30px rgba(17, 0, 95, 0.4));
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 120px;
+            left: 50px;
+            color: #000dff;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        #loader {
+            position: fixed !important;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background: #000;
+            display: flex; justify-content: center; align-items: center;
+            z-index: 999999;
+            transition: opacity 0.8s ease;
+        }
+        .loader-hidden { opacity: 0 !important; pointer-events: none !important; }
+    </style>
+</head>
+<body>
+
+    <div id="loader">
+        <img src="assets/image/lady.gif.gif" alt="loading..." />
+    </div>
+<header class="main-header">
+    <div class="logo-container">
+        <img src="assets/image/dmc.png" alt="DMC Logo" class="nav-logo">
+    </div>
+    <nav class="nav-links">
+        <a href="index.html" data-lang="nav_index"></a>
+        <a href="weapons.html" data-lang="nav_chars"></a>
+        <a href="music.html" data-lang="nav_music"></a>
+        <a href="gallery.html" data-lang="nav_gallery"></a>
+        <a href="story.html" data-lang="nav_story"></a>
+         <a href="about.html" data-lang="nav_about"></a>
+    </nav>
+    <div class="lang-switcher">
+        <button onclick="changeLang('ua')">UA</button>
+        <button onclick="changeLang('en')">EN</button>
+    </div>
+</header>
+
+    <a href="index.html" class="back-btn">← Back</a>
+
+    <main class="dante-page-content">
+        <div class="char-info-box">
+            <h1 data-lang="vergil_name">VERGIL</h1>
+            <p class="char-bio-text" data-lang="vergil_bio_full">
+                Son of the Legendary Dark Knight Sparda. Dante is a paranormal mercenary, 
+                private investigator and vigilante Devil Hunter dedicated to exterminating 
+                evil demons.
+            </p>
+            
+            <div class="weapon-list">
+                <div class="weapon-item">
+                    <strong style="color: #000dfe;">Sword</strong><br>Yamato
+                </div>
+                <div class="weapon-item">
+                    <strong style="color: #000dfc;">main weapon</strong><br>Beowulf
+                </div>
+            </div>
+        </div>
+
+        <div class="char-full-img">
+            <img src="assets/image/vergilpng.png" alt="Dante Full Body">
+        </div>
+    </main>
+
+    <script src="js/loader.js"></script>
+    <script src="js/lang.js"></script>
+    <footer class="main-footer">
+    <div class="footer-line"></div>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="assets/image/dmc.png" alt="DMC">
+        </div>
+        <p>© 2026 Developed by Khopta Mykola. U know what i`ll have to say?</p>
+        <div class="social-links">
+            <span>Jackpot!</span>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

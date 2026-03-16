@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/loader.css">
+    
+</head>
+<body>
+  
+    <div id="loader">
+        <img src="assets/image/lady.gif.gif" alt="запуск" />
+    </div>
+    <header class="main-header">
+    <div class="logo-container">
+        <img src="assets/image/dmc.png" alt="DMC Logo" class="nav-logo">
+    </div>
+    <nav class="nav-links">
+        <a href="index.html" data-lang="nav_index"></a>
+        <a href="weapons.html" data-lang="nav_chars"></a>
+        <a href="music.html" data-lang="nav_music"></a>
+        <a href="gallery.html" data-lang="nav_gallery"></a>
+        <a href="story.html" data-lang="nav_story"></a>
+         <a href="about.html" data-lang="nav_about"></a>
+    </nav>
+    <div class="lang-switcher">
+        <button onclick="changeLang('ua')">UA</button>
+        <button onclick="changeLang('en')">EN</button>
+    </div>
+</header>
+
+
+
+<main class="hero-container">
+    <div class="character-side dante" onclick="location.href='dante.html'">
+        <div class="character-info">
+            <h1 data-lang="dante_name">DANTE</h1>
+            <p data-lang="dante_motto">Jackpot!</p>
+        </div>
+    </div>
+    <div class="character-side vergil" onclick="location.href='vergil.html'">
+        <div class="character-info">
+        <h1 data-lang="vergil_name">VERGIL</h1>
+            <p data-lang="vergil_motto">I need more... Power!</p>
+    </div>
+    </div>
+</main>
+
+<section class="story-section">
+    <div class="particles-container">
+    <div class="particle red"></div>
+    <div class="particle white"></div>
+</div>
+    <div class="container">
+        <h2 class="section-title" data-lang="story_title">SONS OF SPARDA</h2>
+        
+        <div class="brothers-flex">
+        <div class="brother-card dante-bio">
+                <h3 data-lang="dante_name">DANTE</h3>
+                <p data-lang="dante_bio_main">
+                </p>
+         </div>
+
+            <div class="brother-card vergil-bio">
+                <h3 data-lang="vergil_name">VERGIL</h3>
+                <p data-lang="vergil_bio_main">
+                </p>
+           </div>
+        </div>
+    </div>
+</section>
+<section class="legend-section">
+    <div class="container">
+        <div class="glitch-wrapper">
+            <h2 class="glitch-title" data-lang="legend"  data-text="THE LEGEND OF SPARDA"></h2>
+        </div>
+        
+        <div class="sparda-content">
+            <div class="sparda-text">
+                <p data-lang="legend_content">
+                    
+                </p>
+                <p data-lang="legend_content2">
+                    Він обрав людство замість демонічної крові, залишивши своїм синам не лише велику силу, а й тягар вічного протистояння. Його ім'я стало легендою, а його мечі — ключами до долі всього світу.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <script src="js/loader.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/lang.js"></script>
+    <footer class="main-footer">
+    <div class="footer-line"></div>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="assets/image/dmc.png" alt="DMC">
+        </div>
+        <p>© 2026 Developed by Khopta Mykola. U know what i`ll have to say?</p>
+        <div class="social-links">
+            <span>Jackpot!</span>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

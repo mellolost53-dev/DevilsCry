@@ -1,0 +1,178 @@
+
+#loader {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999999;
+            transition: opacity 0.4s ease;
+        }
+        .loader-hidden {
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Щоб падінги не "роздували" елементи */
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Cinzel', serif; /* Готичний стиль, якщо підключений Google Fonts */
+    overflow-x: hidden; /* Щоб не було горизонтальної прокрутки */
+}
+
+/* --- 2. ПАНЕЛЬ НАВІГАЦІЇ (HEADER) --- */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between; /* Розносить Лого, Меню і Кнопки по краях */
+    align-items: center;
+    padding: 0 50px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+    z-index: 1000;
+}
+
+
+
+
+.nav-links a {
+    color: #ccc;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #fff;
+}
+
+/* Кнопки мов */
+.lang-switcher {
+    display: flex;
+    gap: 10px;
+}
+
+.lang-switcher button {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.5);
+    color: white;
+    padding: 5px 12px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+.lang-switcher button:hover {
+    background: #ff0000;
+    border-color: #ff0000;
+}
+
+/* --- 3. ГОЛОВНИЙ КОНТЕЙНЕР (ГЕРОЇ) --- */
+.hero-container {
+    display: flex; /* СТАВИТЬ ГЕРОЇВ ПОРУЧ (ЗЛІВА НАПРАВО) */
+    width: 100%;
+    height: 155vh;
+    overflow: hidden;
+}
+
+.character-side {
+    flex: 1; /* Кожен займає порівну місця */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: flex 0.8s cubic-bezier(0.25, 1, 0.3, 1);
+    cursor: pointer;
+    background-size: cover; /* Щоб фото не плющило */
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: grayscale(0.6); /* Ефект DMC: трохи похмуро, поки не наведеш */
+}
+
+.character-side:hover {
+    flex: 1.6; /* Розширюється при наведенні */
+    filter: grayscale(0);
+}
+
+/* ФОТО (Заміни шляхи на власні) */
+.dante {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                      url('../assets/image/dante.jpg');
+    border-right: 1px solid rgba(255,0,0,0.3);
+}
+
+.vergil {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                      url('../assets/image/vergil.webp');
+}
+
+/* Текст на героях */
+.character-info {
+    text-align: center;
+    z-index: 5;
+    pointer-events: none; /* Щоб текст не заважав клікати по фону */
+}
+
+.character-info h1 {
+    font-size: 4.5rem;
+    letter-spacing: 8px;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 20px #000;
+}
+
+.character-info p {
+    font-size: 1.2rem;
+    color: #ff0000;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+/* --- 4. СЕКЦІЯ ІСТОРІЇ (НИЖЧЕ) --- */
+.story-section {
+    padding: 120px 20px;
+    background-color: #050505;
+    background-image: radial-gradient(circle at center, #111 0%, #000 100%);
+    text-align: center;
+}
+
+.story-section h2 {
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 50px;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.story-content p {
+    font-size: 1.1rem;
+    color: #aaa;
+    margin-bottom: 30px;
+}
+
+/* --- 5. ЛОАДЕР (додатково, щоб не було конфліктів) --- */
+#loader {
+    /* Твої стилі лоадера тут залишаються без змін */
+
+}

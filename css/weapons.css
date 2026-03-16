@@ -1,0 +1,168 @@
+
+body {
+            background: #000;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Навігація по зброї */
+        .wpn-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 25px;
+            margin-top: 90px;
+            background: linear-gradient(to right, transparent, rgba(150, 0, 0, 0.1), transparent);
+            border-bottom: 1px solid #200;
+        }
+
+        .wpn-navigation a {
+            color: #666;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            transition: all 0.4s ease;
+        }
+
+        .wpn-navigation a:hover {
+            color: #ff1a1a;
+            text-shadow: 0 0 8px #f00;
+        }
+
+        .arsenal-container {
+            padding: 50px 8%;
+        }
+
+        .main-title {
+            font-size: clamp(2rem, 8vw, 4rem);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 12px;
+            color: #f00;
+            filter: drop-shadow(0 0 15px #f00);
+            margin-bottom: 100px;
+        }
+
+        /* Блок зброї */
+        .wpn-row {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 150px;
+            opacity: 0;
+            transform: scale(0.95);
+            transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+            scroll-margin-top: 130px;
+        }
+
+        .wpn-row.active-view {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .wpn-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .wpn-text {
+            flex: 1;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #900;
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+        }
+
+        .wpn-text h2 {
+            font-size: 3rem;
+            margin: 0 0 20px 0;
+            font-style: serif;
+            text-transform: uppercase;
+            border-bottom: 2px solid #300;
+            display: inline-block;
+        }
+
+        .wpn-text p {
+            color: #aaa;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        /* Візуалізація (Гіфки) */
+        .wpn-display {
+            flex: 1;
+            position: relative;
+            height: 380px;
+            background: #050505;
+            border: 1px solid #222;
+            overflow: hidden;
+            box-shadow: inset 0 0 50px #000;
+        }
+
+        .static-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 30px;
+            transition: 0.6s ease;
+            filter: grayscale(0.5);
+        }
+
+        .gif-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            opacity: 0;
+            transition: 0.5s ease;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gif-overlay img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 1px solid #f00;
+        }
+
+        /* Ефект при наведенні */
+        .wpn-display:hover .static-img {
+            transform: scale(1.1);
+            filter: blur(5px) grayscale(1);
+        }
+
+        .wpn-display:hover .gif-overlay {
+            opacity: 1;
+        }
+
+        /* Кнопка Вгору */
+        #upBtn {
+            display: none;
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background: #000;
+            color: #f00;
+            border: 1px solid #f00;
+            padding: 15px;
+            cursor: pointer;
+            z-index: 100;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+        }
+
+        @media (max-width: 1000px) {
+            .wpn-row, .wpn-row:nth-child(even) { flex-direction: column; text-align: center; }
+            .wpn-display { width: 100%; height: 300px; }
+        }

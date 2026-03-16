@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Story </title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/loader.css">
+    <link rel="stylesheet" href="css/story.css">
+</head>
+<body>
+    
+
+    <div id="start-screen">
+        <h2>DEVIL MAY CRY</h2>
+        <button class="press-start-btn" onclick="initExperience()">Press Start</button>
+    </div>
+
+    <div id="video-container">
+        <video id="main-video">
+            <source src="assets/video/dmc_intro.mp4" type="video/mp4">
+            Ваш браузер не підтримує відео.
+        </video>
+        <button class="skip-btn" onclick="showStory()">Skip Intro —></button>
+    </div>
+
+    <main id="story-page">
+      <header class="main-header">
+    <div class="logo-container">
+        <img src="assets/image/dmc.png" alt="DMC Logo" class="nav-logo">
+    </div>
+    <nav class="nav-links">
+        <a href="index.html" data-lang="nav_index"></a>
+        <a href="weapons.html" data-lang="nav_chars"></a>
+        <a href="music.html" data-lang="nav_music"></a>
+        <a href="gallery.html" data-lang="nav_gallery"></a>
+        <a href="story.html" data-lang="nav_story"></a>
+         <a href="about.html" data-lang="nav_about"></a>
+    </nav>
+    <div class="lang-switcher">
+        <button onclick="changeLang('ua')">UA</button>
+        <button onclick="changeLang('en')">EN</button>
+    </div>
+</header>
+        <h1 class="story-header" data-lang="story_title">The Legend of Sparda</h1>
+        
+        <div class="story-text-container">
+            <p data-lang="story_full_1">
+            </p>
+            <p data-lang="story_full_2">            </p>
+            
+            <button class="re-watch-btn" onclick="replayIntro()">REWATCH INTRO</button>
+
+            <a href="index.html" class="back-home">← RETURN TO MAIN MENU</a>
+            
+        </div>
+    </main>
+
+    <script>
+        const startScreen = document.getElementById('start-screen');
+        const videoContainer = document.getElementById('video-container');
+        const video = document.getElementById('main-video');
+        const storyPage = document.getElementById('story-page');
+
+                                  // стар відео після кнопки
+        function initExperience() {
+            startScreen.style.display = 'none';
+            videoContainer.style.display = 'block';
+            video.play();
+            
+            // функція показу сторінки після фіні=ішу
+            video.onended = function() {
+                showStory();
+            };
+        }
+
+        // Функція: Ховаємо відео, показуємо текст історії
+        function showStory() {
+            video.pause(); // пауза файлу
+            videoContainer.style.display = 'none';
+            storyPage.style.display = 'block';
+            document.body.style.overflowY = 'auto'; // скрол текст
+        }
+        function replayIntro() {
+    // сховка сторінки з текстом
+    storyPage.style.display = 'none';
+    document.body.style.overflowY = 'hidden'; 
+    
+    // шоу відео з нуля
+    videoContainer.style.display = 'block';
+    
+    // скидаєм як щеплення відос
+    video.currentTime = 0;
+    video.play();
+}
+    </script>
+    
+    <script src="js/lang.js"></script>
+    <footer class="main-footer">
+    <div class="footer-line"></div>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="assets/image/dmc.png" alt="DMC">
+        </div>
+        <p>© 2026 Developed by Khopta Mykola. U know what i`ll have to say?</p>
+        <div class="social-links">
+            <span>Jackpot!</span>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

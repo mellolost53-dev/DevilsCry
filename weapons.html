@@ -1,0 +1,193 @@
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arsenal </title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/loader.css">
+    <link rel="stylesheet" href="css/weapons.css">
+</head>
+<body>
+
+    <div id="loader">
+        <img src="assets/image/lady.gif.gif" alt="loading" />
+    </div>
+<header class="main-header">
+    <div class="logo-container">
+        <img src="assets/image/dmc.png" alt="DMC Logo" class="nav-logo">
+    </div>
+    <nav class="nav-links">
+        <a href="index.html" data-lang="nav_index"></a>
+        <a href="weapons.html" data-lang="nav_chars"></a>
+        <a href="music.html" data-lang="nav_music"></a>
+        <a href="gallery.html" data-lang="nav_gallery"></a>
+        <a href="story.html" data-lang="nav_story"></a>
+         <a href="about.html" data-lang="nav_about"></a>
+    </nav>
+    <div class="lang-switcher">
+        <button onclick="changeLang('ua')">UA</button>
+        <button onclick="changeLang('en')">EN</button>
+    </div>
+</header>
+
+
+    <button onclick="toTop()" id="upBtn">UP</button>
+
+    <div class="wpn-navigation">
+        <a href="#rebel">Rebellion</a>
+        <a href="#yamat">Yamato</a>
+        <a href="#guns">Ebony & Ivory</a>
+        <a href="#ghost">Mirage Edge</a>
+        <a href="#bike">Cavaliere</a>
+        <a href="#wolf">Beowulf</a>
+        <a href="#balrog">Balrog</a>
+        
+    </div>
+
+    <main class="arsenal-container">
+        <h1 class="main-title" data-lang="arsenal"></h1>
+
+        <div class="wpn-list">
+            
+            <div class="wpn-row" id="rebel">
+                <div class="wpn-display">
+                    <img src="assets/image/reb.jpg" class="static-img" alt="Rebellion">
+                    <div class="gif-overlay">
+                        <img src="assets/video/sword.gif" alt="Action">
+                    </div>
+                </div>
+                <div class="wpn-text">
+                    <span class="hero-tag">Dante</span>
+                    <h2>Rebellion</h2>
+                    <p data-lang="rebel"></p>
+                </div>
+            </div>
+
+            <div class="wpn-row" id="yamat">
+                <div class="wpn-display">
+                    <img src="assets/image/yemato.jpg" class="static-img" alt="Yamato">
+                    <div class="gif-overlay">
+                        <img src="assets/video/yamato.gif" alt="Action">
+                    </div>
+                </div>
+                <div class="wpn-text">
+                    <span class="hero-tag" style="background: #0044cc;">Vergil</span>
+                    <h2>Yamato</h2>
+                    <p data-lang="yamat"></p>
+                </div>
+            </div>
+             <div class="wpn-row" id="bike">
+                <div class="wpn-display">
+                    <img src="assets/image/bike.jpg" class="static-img" alt="Rebellion">
+                    <div class="gif-overlay">
+                        <img src="assets/video/bike.gif" alt="Action">
+                    </div>
+                </div>
+                <div class="wpn-text">
+                    <span class="hero-tag">Dante</span>
+                    <h2>Cavaliere</h2>
+                    <p data-lang="bike"></p>
+                </div>
+            </div>
+ <div class="wpn-row" id="ghost">
+                <div class="wpn-display">
+                    <img src="assets/image/ghost.jpg" class="static-img" alt="Ghost">
+                    <div class="gif-overlay">
+                        <img src="assets/video/ghost.gif" alt="Action">
+                    </div>
+                </div>
+                <div class="wpn-text">
+                    <span class="hero-tag" style="background: #0044cc;">Vergil</span>
+                    <h2>Mirage Edge</h2>
+                    <p data-lang="ghost"></p>
+                </div>
+            </div>
+
+            <div class="wpn-row" id="guns">
+                <div class="wpn-display">
+                    <img src="assets/image/pistols.jpg" class="static-img" alt="Guns">
+                    <div class="gif-overlay">
+                        <img src="assets/video/pistols.gif" alt="Action">
+                    </div>
+                </div>
+                <div class="wpn-text">
+                    <span class="hero-tag">Dante</span>
+                    <h2>Ebony & Ivory</h2>
+                    <p data-lang="guns"></p>
+                </div>
+            </div>
+<div class="wpn-row" id="wolf">
+                <div class="wpn-display">
+                    <img src="assets/image/wolf.jpg" class="static-img" alt="Wolf">
+                    <div class="gif-overlay">
+                        <img src="assets/video/wolf.gif" alt="Action">
+                    </div>
+                </div>
+                <div class="wpn-text">
+                    <span class="hero-tag" style="background: #0044cc;">Vergil</span>
+                    <h2>Wolf</h2>
+                    <p data-lang="wolf"></p>
+                </div>
+            </div>
+             <div class="wpn-row" id="balrog">
+                <div class="wpn-display">
+                    <img src="assets/image/beo.jpg" class="static-img" alt="Balrog">
+                    <div class="gif-overlay">
+                        <img src="assets/video/beo.gif" alt="Action">
+                    </div>
+                </div>
+                <div class="wpn-text">
+                    <span class="hero-tag">Dante</span>
+                    <h2>Rebellion</h2>
+                    <p data-lang="beo"></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/loader.js"></script>
+    <script src="js/lang.js"></script>
+    <script>
+        // епіар інфи при скролі
+        const viewObserver = new IntersectionObserver((entries) => {
+            entries.forEach(item => {
+                if (item.isIntersecting) {
+                    item.target.classList.add('active-view');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.wpn-row').forEach(el => {
+            viewObserver.observe(el);
+        });
+
+        // Кнопка вгору
+        const topButton = document.getElementById("upBtn");
+        window.onscroll = () => {
+            if (document.documentElement.scrollTop > 400) {
+                topButton.style.display = "block";
+            } else {
+                topButton.style.display = "none";
+            }
+        };
+
+        function toTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+    <footer class="main-footer">
+    <div class="footer-line"></div>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="assets/image/dmc.png" alt="DMC">
+        </div>
+        <p>© 2026 Developed by Khopta Mykola. U know what i`ll have to say?</p>
+        <div class="social-links">
+            <span>Jackpot!</span>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

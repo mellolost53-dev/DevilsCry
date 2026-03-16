@@ -1,0 +1,92 @@
+
+body { background: #000; color: white; margin: 0; font-family: 'Segoe UI', sans-serif; overflow-x: hidden; }
+
+        .music-wrapper {
+            padding-top: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 { text-shadow: 0 0 10px #f00; text-transform: uppercase; letter-spacing: 5px; }
+
+        .player-container {
+            display: flex;
+            flex-direction: row;
+            width: 80%;
+            max-width: 900px;
+            background: rgba(20, 0, 0, 0.8);
+            border: 2px solid #300;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.2);
+            margin-top: 30px;
+            padding: 20px;
+            gap: 30px;
+            border-radius: 5px;
+        }
+
+                           /* обложки */
+        .album-art {
+            flex: 1;
+            position: relative;
+            text-align: center;
+        }
+
+        .album-art img {
+            width: 100%;
+            max-width: 300px;
+            border: 2px solid #f00;
+            box-shadow: 0 0 20px #f00;
+            transition: transform 0.5s ease;
+        }
+
+        .album-art.playing img {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 20px #f00; }
+            50% { transform: scale(1.03); box-shadow: 0 0 40px #f00; }
+            100% { transform: scale(1); box-shadow: 0 0 20px #f00; }
+        }
+
+     /* музок ніфіговий */
+        .playlist {
+            flex: 1.5;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .track {
+            padding: 15px;
+            background: #111;
+            border-left: 4px solid #300;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .track:hover { background: #200; border-left: 4px solid #f00; }
+        .track.active { background: #300; border-left: 4px solid #f00; }
+
+        .track-info h3 { margin: 0; font-size: 1.1rem; color: #eee; }
+        .track-info p { margin: 5px 0 0; font-size: 0.8rem; color: #888; }
+
+         /* кастом плеєр */
+        .audio-controls {
+            width: 100%;
+            margin-top: 20px;
+            background: #000;
+            padding: 10px;
+            border-top: 1px solid #300;
+        }
+
+        audio {
+            width: 100%;
+            filter: invert(100%) hue-rotate(180deg) brightness(1.5); /* chervono-chorny stil */
+        }
+
+        .back-link { margin: 40px; color: #555; text-decoration: none; transition: 0.3s; }

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery </title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/loader.css">
+    <link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo-container">
+        <img src="assets/image/dmc.png" alt="DMC Logo" class="nav-logo">
+    </div>
+    <nav class="nav-links">
+        <a href="index.html" data-lang="nav_index"></a>
+        <a href="weapons.html" data-lang="nav_chars"></a>
+        <a href="music.html" data-lang="nav_music"></a>
+        <a href="gallery.html" data-lang="nav_gallery"></a>
+        <a href="story.html" data-lang="nav_story"></a>
+         <a href="about.html" data-lang="nav_about"></a>
+    </nav>
+    <div class="lang-switcher">
+        <button onclick="changeLang('ua')">UA</button>
+        <button onclick="changeLang('en')">EN</button>
+    </div>
+</header>
+
+    <div class="gallery-wrapper">
+        <h1 data-lang="gallery_title"></h1>
+
+        <h2 data-lang="devil may cry memories"></h2>
+        <div class="carousel-container">
+            <div class="carousel-slide"><img src="assets/image/p1.jpg" onclick="openModal(this)"><div class="caption">Dante's conception of DMC3</div></div>
+            <div class="carousel-slide"><img src="assets/image/p2.webp" onclick="openModal(this)"><div class="caption">Vergil`s Devil Trigger Mode</div></div>
+            <div class="carousel-slide"><img src="assets/image/p3.jpg" onclick="openModal(this)"><div class="caption">mission 12 cutscene</div></div>
+            <div class="carousel-slide"><img src="assets/image/p4.webp" onclick="openModal(this)"><div class="caption">JACKPOT!</div></div>
+            <div class="carousel-slide"><img src="assets/image/p5.jpg" onclick="openModal(this)"><div class="caption">Cerberus</div></div>
+            <div class="carousel-slide"><img src="assets/image/p7.jpg" onclick="openModal(this)"><div class="caption">mission 7 screenshot</div></div>
+            <div class="carousel-slide"><img src="assets/image/p8.jpg" onclick="openModal(this)"><div class="caption">unlocked character</div></div>
+            <div class="carousel-slide"><img src="assets/image/p8.webp" onclick="openModal(this)"><div class="caption">ROAR! ROAR!</div></div>
+            
+            <button class="prev" onclick="changeSlide(-1, 0)">❮</button>
+            <button class="next" onclick="changeSlide(1, 0)">❯</button>
+        </div>
+        <div class="dots-container">
+            <span class="dot" onclick="currentSlide(1, 0)"></span>
+            <span class="dot" onclick="currentSlide(2, 0)"></span>
+            <span class="dot" onclick="currentSlide(3, 0)"></span>
+            <span class="dot" onclick="currentSlide(4, 0)"></span>
+            <span class="dot" onclick="currentSlide(5, 0)"></span>
+            <span class="dot" onclick="currentSlide(6, 0)"></span>
+            <span class="dot" onclick="currentSlide(7, 0)"></span>
+            <span class="dot" onclick="currentSlide(8, 0)"></span>
+        </div>
+
+        <h2 data-lang="concept"></h2>
+        <div class="carousel-container">
+            <div class="carousel-slide"><img src="assets/image/p11.jpg" onclick="openModal(this)"><div class="caption">Sin Devil Trigger</div></div>
+            <div class="carousel-slide"><img src="assets/image/p12.jpg" onclick="openModal(this)"><div class="caption">Lady DMC5</div></div>
+            <div class="carousel-slide"><img src="assets/image/p13.jpg" onclick="openModal(this)"><div class="caption">V</div></div>
+            <div class="carousel-slide"><img src="assets/image/p15.webp" onclick="openModal(this)"><div class="caption">Dante DMC5</div></div>
+            <div class="carousel-slide"><img src="assets/image/p16.jpg" onclick="openModal(this)"><div class="caption">unreleased Verigl`s concept</div></div>
+
+            <button class="prev" onclick="changeSlide(-1, 1)">❮</button>
+            <button class="next" onclick="changeSlide(1, 1)">❯</button>
+        </div>
+        <div class="dots-container">
+            <span class="dot" onclick="currentSlide(1, 1)"></span>
+            <span class="dot" onclick="currentSlide(2, 1)"></span>
+            <span class="dot" onclick="currentSlide(3, 1)"></span>
+            <span class="dot" onclick="currentSlide(4, 1)"></span>
+            <span class="dot" onclick="currentSlide(5, 1)"></span>
+        </div>
+        
+        <a href="index.html" style="color: #555; text-decoration: none; margin-bottom: 50px;">← BACK TO SELECTION</a>
+    </div>
+
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+    <script>
+        // Кожна карусель має свій індекс у масиві
+        let slideIndices = [1, 1];
+
+        // Ініціалізація
+        showSlides(1, 0);
+        showSlides(1, 1);
+
+        function changeSlide(n, no) {
+            showSlides(slideIndices[no] += n, no);
+        }
+
+        function currentSlide(n, no) {
+            showSlides(slideIndices[no] = n, no);
+        }
+
+        function showSlides(n, no) {
+            let i;
+            // Знаходимо контейнери за класами
+            let containers = document.getElementsByClassName("carousel-container");
+            let dotsContainers = document.getElementsByClassName("dots-container");
+            
+            // Беремо слайди та крапки ТІЛЬКИ всередині потрібної каруселі
+            let slides = containers[no].getElementsByClassName("carousel-slide");
+            let dots = dotsContainers[no].getElementsByClassName("dot");
+
+            if (n > slides.length) { slideIndices[no] = 1 }    
+            if (n < 1) { slideIndices[no] = slides.length }
+            
+            // Ховаємо слайди поточної каруселі
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            // Скидаємо крапки поточної каруселі
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            
+            slides[slideIndices[no]-1].style.display = "block";  
+            if (dots[slideIndices[no]-1]) {
+                dots[slideIndices[no]-1].className += " active";
+            }
+        }
+
+        function openModal(imgElement) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("img01");
+            modal.style.display = "flex";
+            modalImg.src = imgElement.src;
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("imageModal")) { closeModal(); }
+        }
+    </script>
+    <script src="js/loader.js"></script>
+    <script src="js/lang.js"></script>
+    <footer class="main-footer">
+    <div class="footer-line"></div>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="assets/image/dmc.png" alt="DMC">
+        </div>
+        <p>© 2026 Developed by Khopta Mykola. U know what i`ll have to say?</p>
+        <div class="social-links">
+            <span>Jackpot!</span>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
