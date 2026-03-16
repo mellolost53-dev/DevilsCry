@@ -25,7 +25,7 @@
     </div>
 
     <main id="story-page">
-      <header class="main-header">
+    <header class="main-header">
     <div class="logo-container">
         <img src="assets/image/dmc.png" alt="DMC Logo" class="nav-logo">
     </div>
@@ -43,12 +43,11 @@
         <a href="gallery.html" data-lang="nav_gallery"></a>
         <a href="story.html" data-lang="nav_story"></a>
         <a href="about.html" data-lang="nav_about"></a>
-        
-        <div class="mobile-lang">
-            <button onclick="changeLang('ua')">UA</button>
-            <button onclick="changeLang('en')">EN</button>
-        </div>
     </nav>
+    <div class="lang-switcher">
+        <button onclick="changeLang('ua')">UA</button>
+        <button onclick="changeLang('en')">EN</button>
+    </div>
 </header>
         <h1 class="story-header" data-lang="story_title">The Legend of Sparda</h1>
         
@@ -102,7 +101,7 @@
     video.play();
 }
     </script>
-    
+    <script src="js/navigation.js"></script>
     <script src="js/lang.js"></script>
     <footer class="main-footer">
     <div class="footer-line"></div>
